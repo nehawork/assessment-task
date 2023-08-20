@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { Poppins } from "next/font/google";
 
 const inter = Poppins({
-  weight: "400",
+  weight: ["400", "500"],
   preload: true,
   style: ["normal"],
   subsets: ["latin"]
@@ -20,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className + " w-screen h-screen bg-gray-800 "}>
+        {children}
+      </body>
     </html>
   );
 }

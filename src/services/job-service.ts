@@ -14,6 +14,7 @@ class JobService {
   }
 
   listAllJobs = (): Promise<Array<Job> | undefined> => {
+    console.log("In list all jobs...");
     return this.apiClient.get(this.apiBase);
   };
 
@@ -25,7 +26,7 @@ class JobService {
     return this.apiClient.put(`${this.apiBase}/${jobPayload.id}`, jobPayload);
   };
 
-  getJob = (jobId: string): Promise<Job | undefined> => {
+  getJob = (jobId: string): Promise<Job | {}> => {
     return this.apiClient.get(`${this.apiBase}/${jobId}`);
   };
 

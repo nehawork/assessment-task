@@ -4,14 +4,14 @@ interface CreateJobPayload {
   industry: string;
   location: string;
   remoteType: string;
-  minExp: number;
-  maxExp: number;
-  minSalary: number;
-  maxSalary: number;
+  minExp?: number;
+  maxExp?: number;
+  minSalary?: number;
+  maxSalary?: number;
   totalEmployee: string;
-  isExternalApply: false;
-  externalApplyLink: string | null;
-  workingHours: string;
+  isExternalApply: boolean;
+  externalApplyLink?: string | null;
+  workingHours?: string;
   createdAt: string;
 }
 
