@@ -1,3 +1,5 @@
+"use server";
+
 import NoData from "@/components/no-data/NoData";
 import JobList from "@/modules/job/list-job/JobList";
 import { jobService } from "@/services/job-service";

@@ -12,8 +12,9 @@ const JobCard = ({ job }: { job: Job }): JSX.Element => {
   const router = useRouter();
 
   const onDelete = (): void => {
-    jobService.deleteJob(job.id);
-    router.refresh();
+    jobService.deleteJob(job.id).then(() => {
+      router.refresh();
+    });
   };
 
   const onEdit = (): void => {
