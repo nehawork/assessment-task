@@ -79,7 +79,7 @@ const NewJob = () => {
   };
 
   const getValidValueForNumber = (val: any) => {
-    return !Number.isFinite(val) ? undefined : val;
+    return !Number.isFinite(val) ? "" : val;
   };
 
   const handleFormSubmit = (values: any, errors: any) => {
