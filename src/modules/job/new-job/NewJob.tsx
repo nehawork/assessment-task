@@ -49,30 +49,29 @@ const NewJob = () => {
     });
   };
 
-  const onFormSuccessSubmit = (e: any): void => {
-    e.preventDefault();
+  const onFormSuccessSubmit = (): void => {
     setIsOpen(false);
     setStepNumber(1);
     router.push("/jobs");
     router.refresh();
   };
 
-  const addJob = (e: any, jobPayload: CreateJobPayload): void => {
+  const addJob = (jobPayload: CreateJobPayload): void => {
     jobService
       .createJob(jobPayload)
       .then(() => {
-        onFormSuccessSubmit(e);
+        onFormSuccessSubmit();
       })
       .finally(() => {
         setIsFormSubmitting(false);
       });
   };
 
-  const updateJob = (e: any, jobPayload: Job): void => {
+  const updateJob = (jobPayload: Job): void => {
     jobService
       .updateJob(jobPayload)
       .then(() => {
-        onFormSuccessSubmit(e);
+        onFormSuccessSubmit();
       })
       .finally(() => {
         setIsFormSubmitting(false);
@@ -83,7 +82,7 @@ const NewJob = () => {
     return !Number.isFinite(val) ? "" : val;
   };
 
-  const handleFormSubmit = (e: any, values: any, errors: any) => {
+  const handleFormSubmit = (values: any, errors: any) => {
     if (Object.keys(errors).length === 0) {
       if (stepNumber === 1) {
         setStepNumber(2);
@@ -102,7 +101,7 @@ const NewJob = () => {
           id: isEdit ? jobId : undefined
         };
 
-        isEdit ? updateJob(e, formValues) : addJob(e, formValues);
+        isEdit ? updateJob(formValues) : addJob(formValues);
       }
     }
   };

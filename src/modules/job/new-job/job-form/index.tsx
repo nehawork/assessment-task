@@ -9,7 +9,7 @@ type NewJobFormProps = {
   jobDetails: any;
   stepNumber: number;
   isFormSubmitting: boolean;
-  handleFormSubmit: (e: any, values: any, errors: any) => void;
+  handleFormSubmit: (values: any, errors: any) => void;
 };
 
 const NewJobForm = ({
@@ -46,9 +46,9 @@ const NewJobForm = ({
 
           <Button
             type="primary"
-            onClick={e => {
+            onClick={() => {
               validateForm(values).then((validationResponse: any) =>
-                handleFormSubmit(e, values, validationResponse)
+                handleFormSubmit(values, validationResponse)
               );
             }}
             title={

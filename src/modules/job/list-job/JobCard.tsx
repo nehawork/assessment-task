@@ -22,8 +22,10 @@ const JobCard = ({ job }: { job: Job }): JSX.Element => {
     <div key={job.id} className="jobCard">
       <div className="mainDetailsWrapper">
         <div>
-          <div className="titleText">{job.companyName}</div>
-          <div className="subTitleText">{job.industry}</div>
+          <div className="titleText">{job.jobTitle}</div>
+          <div className="subTitleText">
+            {job.companyName}-{job.industry}
+          </div>
           <div className="subTitleText highlightedText ">
             {job.location || ""}
             {job.remoteType
