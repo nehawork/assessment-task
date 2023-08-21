@@ -2,7 +2,7 @@ type ButtonProps = {
   title: any;
   type: "primary" | "secondary";
   extraClassName?: string;
-  onClick?: () => void;
+  onClick?: (e: any) => void;
 };
 
 const Button = ({
