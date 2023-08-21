@@ -6,6 +6,7 @@ import DeleteIcon from "@/components/icons/DeleteIcon";
 import EditIcon from "@/components/icons/EditIcon";
 import Job from "@/models/job-model";
 import { jobService } from "@/services/job-service";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const JobCard = ({ job }: { job: Job }): JSX.Element => {
@@ -17,9 +18,6 @@ const JobCard = ({ job }: { job: Job }): JSX.Element => {
     });
   };
 
-  const onEdit = (): void => {
-    router.push(`/jobs?id=${job.id}`);
-  };
   return (
     <div key={job.id} className="jobCard">
       <div className="mainDetailsWrapper">
@@ -36,7 +34,9 @@ const JobCard = ({ job }: { job: Job }): JSX.Element => {
           </div>
         </div>
         <div className="iconsWrapper">
-          <EditIcon className="mr-2" onClick={onEdit} />
+          <Link href={`/jobs?id=${job.id}`}>
+            <EditIcon className="mr-2" />
+          </Link>
           <DeleteIcon onClick={onDelete} />
         </div>
       </div>

@@ -5,7 +5,7 @@ const DeleteIcon = ({
   onClick
 }: {
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }): JSX.Element => {
   return (
     <TrashIcon

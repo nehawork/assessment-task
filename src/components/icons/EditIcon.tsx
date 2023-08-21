@@ -5,7 +5,7 @@ const EditIcon = ({
   onClick
 }: {
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }): JSX.Element => {
   return (
     <PencilSquareIcon
